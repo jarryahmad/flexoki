@@ -44,17 +44,17 @@ a.link-39sEB3[aria-label*="unread"] .name-28HaxV {
 }
 
 /* Fix active/selected channel visibility */
-/* Active/selected channel names - make them dark and bold for readability */
+/* Active/selected channel names - make them grey for readability */
 .link-39sEB3.modeSelected-3DmyhH .name-28HaxV,
 .channel-1Shao0.modeSelected-3DmyhH .name-28HaxV,
 .link-39sEB3[aria-current="page"] .name-28HaxV {
-    color: rgb(var(--textbrightest)) !important;
-    font-weight: 700 !important;
+    color: #B7B5AC !important;
+    font-weight: normal !important;
 }
 
 /* Alternative: if above doesn't work, target all channel links in selected state */
 [class*="modeSelected"] [class*="name"],
 [class*="selected"] [class*="name"] {
-    color: rgb(var(--textbrightest)) !important;
-    font-weight: 700 !important;
+    color: #B7B5AC !important;
+    font-weight: normal !important;
 }
