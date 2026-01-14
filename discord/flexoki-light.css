@@ -24,12 +24,12 @@
 /* Any custom CSS below here */
 
 /* Fix unread channel visibility */
-/* Unread channel names - make them dark and bold for visibility */
+/* Unread channel names - use darker color instead of bold for visibility */
 .link-39sEB3.modeUnread-3Cxepe .name-28HaxV,
 .channel-1Shao0.modeUnread-3Cxepe .name-28HaxV,
 a.link-39sEB3[aria-label*="unread"] .name-28HaxV {
-    color: rgb(var(--textbrightest)) !important;
-    font-weight: 600 !important;
+    color: rgb(var(--textbright)) !important;
+    font-weight: normal !important;
 }
 
 /* Unread indicator/badge */
@@ -39,8 +39,8 @@ a.link-39sEB3[aria-label*="unread"] .name-28HaxV {
 
 /* Alternative: if above doesn't work, target all channel links in unread state */
 [class*="modeUnread"] [class*="name"] {
-    color: rgb(var(--textbrightest)) !important;
-    font-weight: 600 !important;
+    color: rgb(var(--textbright)) !important;
+    font-weight: normal !important;
 }
 
 /* Fix active/selected channel visibility */
@@ -57,4 +57,20 @@ a.link-39sEB3[aria-label*="unread"] .name-28HaxV {
 [class*="selected"] [class*="name"] {
     color: #B7B5AC !important;
     font-weight: normal !important;
+}
+
+/* Fix channel group/category headers to stay grey on hover */
+.container-1NXEtd .name-3BUDLf,
+.containerDefault-YUSmu3 .name-3BUDLf,
+[class*="containerDefault"] [class*="name"],
+[class*="container"] > [class*="name"] {
+    color: rgb(var(--textdark)) !important;
+}
+
+/* Keep category headers grey on hover */
+.container-1NXEtd:hover .name-3BUDLf,
+.containerDefault-YUSmu3:hover .name-3BUDLf,
+[class*="containerDefault"]:hover [class*="name"],
+[class*="container"]:hover > [class*="name"] {
+    color: rgb(var(--textdark)) !important;
 }
