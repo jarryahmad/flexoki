@@ -300,12 +300,9 @@ nav[aria-label="Servers sidebar"] {
 }
 
 /* Channel categories / group headers — force normal case */
-[class*="sidebar"] [class*="container"] [class*="name"],
-[class*="sidebar"] h2,
-[class*="sidebar"] [class*="overflow"],
-[class*="channels"] [class*="container"] [class*="name"] {
+/* Nuclear override: any uppercase text in the sidebar */
+[class*="sidebar"] * {
   text-transform: none !important;
-  color: var(--fl-500) !important;
 }
 
 /* Default channel names */
