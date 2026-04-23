@@ -52,19 +52,19 @@
    ============================================================ */
 .theme-dark {
   /* ---- Main surfaces ---- */
-  --background-primary:          var(--fl-black);   /* chat area */
-  --background-secondary:        var(--fl-950);     /* sidebars, panels */
-  --background-secondary-alt:    var(--fl-900);     /* slightly raised panels */
+  --background-primary:          var(--fl-950);     /* chat area — slightly lifted */
+  --background-secondary:        var(--fl-black);   /* sidebars — match server column */
+  --background-secondary-alt:    var(--fl-black);   /* sidebar alt */
   --background-tertiary:         var(--fl-black);   /* server column, inputs */
   --background-accent:           var(--fl-800);     /* buttons, pills */
   --background-floating:         var(--fl-900);     /* popouts, tooltips, modals */
   --background-nested-floating:  var(--fl-850);     /* nested floating elements */
-  --background-mobile-primary:   var(--fl-black);
-  --background-mobile-secondary: var(--fl-950);
-  --background-modifier-hover:   rgba(87, 86, 83, 0.10);   /* fl-700 subtle */
-  --background-modifier-active:  rgba(87, 86, 83, 0.14);
-  --background-modifier-selected:rgba(87, 86, 83, 0.16);
-  --background-modifier-accent:  rgba(64, 62, 60, 0.24);
+  --background-mobile-primary:   var(--fl-950);
+  --background-mobile-secondary: var(--fl-black);
+  --background-modifier-hover:   rgba(87, 86, 83, 0.08);
+  --background-modifier-active:  rgba(87, 86, 83, 0.12);
+  --background-modifier-selected:rgba(87, 86, 83, 0.14);
+  --background-modifier-accent:  rgba(64, 62, 60, 0.08);   /* near-invisible dividers */
   --background-mentioned:        rgba(208, 162, 21, 0.08);  /* yellow tint */
   --background-mentioned-hover:  rgba(208, 162, 21, 0.12);
   --background-message-hover:    rgba(16, 15, 15, 0.25);
@@ -74,8 +74,8 @@
   /* ---- Elevated surfaces ---- */
   --modal-background:            var(--fl-900);
   --modal-footer-background:     var(--fl-850);
-  --input-background:            var(--fl-950);
-  --channeltextarea-background:  var(--fl-950);
+  --input-background:            var(--fl-900);
+  --channeltextarea-background:  var(--fl-900);
 
   /* ---- Scrollbar ---- */
   --scrollbar-thin-thumb:        var(--fl-800);
@@ -287,16 +287,16 @@ nav[aria-label="Servers sidebar"] {
    9. CHANNEL SIDEBAR
    ============================================================ */
 
-/* Sidebar background */
+/* Sidebar background — match server column */
 [class*="sidebar_"] {
-  background-color: var(--fl-950) !important;
+  background-color: var(--fl-black) !important;
 }
 
 /* Server name / header bar at top of sidebar */
 [class*="header"][class*="container"] {
-  background-color: var(--fl-950) !important;
+  background-color: var(--fl-black) !important;
   color: var(--fl-150) !important;
-  box-shadow: 0 1px 0 var(--fl-900) !important;
+  box-shadow: 0 1px 0 rgba(40, 39, 38, 0.5) !important;
 }
 
 /* Channel categories / group headers — force normal case */
@@ -339,9 +339,9 @@ nav[aria-label="Servers sidebar"] {
    10. CHAT / MESSAGE AREA
    ============================================================ */
 
-/* Chat background */
+/* Chat background — slightly lighter than sidebars */
 [class*="chatContent"] {
-  background-color: var(--fl-black) !important;
+  background-color: var(--fl-950) !important;
 }
 
 /* Message text */
@@ -488,11 +488,11 @@ code.inline {
 
 /* Member list background */
 [class*="membersWrap"] {
-  background-color: var(--fl-950) !important;
+  background-color: var(--fl-black) !important;
 }
 
 [class*="members"] > [class*="content"] {
-  background-color: var(--fl-950) !important;
+  background-color: var(--fl-black) !important;
 }
 
 /* Role/group headers in member list */
@@ -522,7 +522,7 @@ code.inline {
    ============================================================ */
 
 [class*="panels"] {
-  background-color: var(--fl-950) !important;
+  background-color: var(--fl-black) !important;
 }
 
 [class*="panels"] [class*="username"] {
@@ -550,7 +550,7 @@ code.inline {
 
 [class*="titleBar"],
 [class*="title"][class*="themed"] {
-  background-color: var(--fl-950) !important;
+  background-color: var(--fl-black) !important;
 }
 
 /* Channel name in title */
@@ -805,7 +805,7 @@ code.inline {
    ============================================================ */
 
 [class*="privateChannels"] {
-  background-color: var(--fl-950) !important;
+  background-color: var(--fl-black) !important;
 }
 
 /* DM search at top */
