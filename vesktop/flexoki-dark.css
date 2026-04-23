@@ -61,10 +61,10 @@
   --background-nested-floating:  var(--fl-850);     /* nested floating elements */
   --background-mobile-primary:   var(--fl-black);
   --background-mobile-secondary: var(--fl-950);
-  --background-modifier-hover:   rgba(87, 86, 83, 0.16);   /* fl-700 @ 16% */
-  --background-modifier-active:  rgba(87, 86, 83, 0.24);   /* fl-700 @ 24% */
-  --background-modifier-selected:rgba(87, 86, 83, 0.24);   /* fl-700 @ 24% */
-  --background-modifier-accent:  rgba(64, 62, 60, 0.48);   /* fl-800 @ 48% */
+  --background-modifier-hover:   rgba(87, 86, 83, 0.10);   /* fl-700 subtle */
+  --background-modifier-active:  rgba(87, 86, 83, 0.14);
+  --background-modifier-selected:rgba(87, 86, 83, 0.16);
+  --background-modifier-accent:  rgba(64, 62, 60, 0.24);
   --background-mentioned:        rgba(208, 162, 21, 0.08);  /* yellow tint */
   --background-mentioned-hover:  rgba(208, 162, 21, 0.12);
   --background-message-hover:    rgba(16, 15, 15, 0.25);
@@ -299,15 +299,12 @@ nav[aria-label="Servers sidebar"] {
   box-shadow: 0 1px 0 var(--fl-900) !important;
 }
 
-/* Channel categories / group headers — Discord uppercases these by default */
-[class*="containerDefault"] [class*="name"],
-[class*="categoryName"],
-h2[class*="container"] [class*="name"] {
-  color: var(--fl-600) !important;
+/* Channel categories / group headers — force normal case */
+[class*="sidebar"] [class*="container"] [class*="name"],
+[class*="sidebar"] h2,
+[class*="sidebar"] [class*="overflow"],
+[class*="channels"] [class*="container"] [class*="name"] {
   text-transform: none !important;
-}
-
-[class*="containerDefault"]:hover [class*="name"] {
   color: var(--fl-500) !important;
 }
 
@@ -324,22 +321,17 @@ h2[class*="container"] [class*="name"] {
   font-weight: 500 !important;
 }
 
-/* Selected/active channel — subtle highlight only */
+/* Selected/active channel */
 [class*="modeSelected"] [class*="name"],
 [class*="modeSelected"] [class*="icon"],
 [class*="modeSelected"] [class*="activityText"] {
   color: var(--fl-200) !important;
 }
 
-[class*="modeSelected"] [class*="link"],
-[class*="modeSelected"][class*="wrapper"] {
-  background-color: rgba(64, 62, 60, 0.25) !important;
-}
-
 /* Hovered channel */
 [class*="modeInteractable"]:hover [class*="link"],
 [class*="modeUnread"]:hover [class*="link"] {
-  background-color: rgba(64, 62, 60, 0.2) !important;
+  background-color: rgba(64, 62, 60, 0.15) !important;
 }
 
 
