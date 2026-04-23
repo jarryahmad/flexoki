@@ -1,0 +1,937 @@
+/**
+ * Flexoki Dark — Vesktop / Vencord Theme
+ * Based on the Flexoki color system by Steph Ango
+ * https://stephango.com/flexoki
+ *
+ * Paste into: Vesktop Settings → Vencord → Themes → Edit QuickCSS
+ * Or load as a .css file via the Online Themes / Local Themes option.
+ */
+
+
+/* ============================================================
+   1. FLEXOKI PALETTE — CSS CUSTOM PROPERTIES
+   ============================================================ */
+:root {
+  /* --- Base / Neutral --- */
+  --fl-black:     #100F0F;
+  --fl-950:       #1C1B1A;
+  --fl-900:       #282726;
+  --fl-850:       #343331;
+  --fl-800:       #403E3C;
+  --fl-700:       #575653;
+  --fl-600:       #6F6E69;
+  --fl-500:       #878580;
+  --fl-400:       #9F9D96;
+  --fl-300:       #B7B5AC;
+  --fl-200:       #CECDC3;
+  --fl-150:       #DAD8CE;
+  --fl-100:       #E6E4D9;
+
+  /* --- Accent colors (400 = vibrant, 600 = muted) --- */
+  --fl-red:       #D14D41;
+  --fl-red-dim:   #AF3029;
+  --fl-orange:    #DA702C;
+  --fl-orange-dim:#BC5215;
+  --fl-yellow:    #D0A215;
+  --fl-yellow-dim:#AD8301;
+  --fl-green:     #879A39;
+  --fl-green-dim: #66800B;
+  --fl-cyan:      #3AA99F;
+  --fl-cyan-dim:  #24837B;
+  --fl-blue:      #4385BE;
+  --fl-blue-dim:  #205EA6;
+  --fl-purple:    #8B7EC8;
+  --fl-purple-dim:#5E409D;
+  --fl-magenta:   #CE5D97;
+  --fl-magenta-dim:#A02F6F;
+}
+
+
+/* ============================================================
+   2. DISCORD CORE VARIABLES — BACKGROUNDS
+   ============================================================ */
+.theme-dark {
+  /* ---- Main surfaces ---- */
+  --background-primary:          var(--fl-black);   /* chat area */
+  --background-secondary:        var(--fl-950);     /* sidebars, panels */
+  --background-secondary-alt:    var(--fl-900);     /* slightly raised panels */
+  --background-tertiary:         var(--fl-black);   /* server column, inputs */
+  --background-accent:           var(--fl-800);     /* buttons, pills */
+  --background-floating:         var(--fl-900);     /* popouts, tooltips, modals */
+  --background-nested-floating:  var(--fl-850);     /* nested floating elements */
+  --background-mobile-primary:   var(--fl-black);
+  --background-mobile-secondary: var(--fl-950);
+  --background-modifier-hover:   rgba(87, 86, 83, 0.16);   /* fl-700 @ 16% */
+  --background-modifier-active:  rgba(87, 86, 83, 0.24);   /* fl-700 @ 24% */
+  --background-modifier-selected:rgba(87, 86, 83, 0.24);   /* fl-700 @ 24% */
+  --background-modifier-accent:  rgba(64, 62, 60, 0.48);   /* fl-800 @ 48% */
+  --background-mentioned:        rgba(208, 162, 21, 0.08);  /* yellow tint */
+  --background-mentioned-hover:  rgba(208, 162, 21, 0.12);
+  --background-message-hover:    rgba(16, 15, 15, 0.25);
+  --background-message-highlight:rgba(208, 162, 21, 0.08);
+  --background-message-highlight-hover: rgba(208, 162, 21, 0.06);
+
+  /* ---- Elevated surfaces ---- */
+  --modal-background:            var(--fl-900);
+  --modal-footer-background:     var(--fl-850);
+  --input-background:            var(--fl-950);
+  --channeltextarea-background:  var(--fl-950);
+
+  /* ---- Scrollbar ---- */
+  --scrollbar-thin-thumb:        var(--fl-800);
+  --scrollbar-thin-track:        transparent;
+  --scrollbar-auto-thumb:        var(--fl-800);
+  --scrollbar-auto-track:        var(--fl-950);
+  --scrollbar-auto-scrollbar-color-thumb: var(--fl-800);
+  --scrollbar-auto-scrollbar-color-track: var(--fl-950);
+
+
+  /* ============================================================
+     3. TEXT & HEADER COLORS
+     ============================================================ */
+  --text-normal:           var(--fl-200);  /* primary readable text */
+  --text-muted:            var(--fl-500);  /* timestamps, secondary */
+  --text-faint:            var(--fl-700);  /* very subtle hints */
+  --text-link:             var(--fl-cyan); /* clickable links */
+  --text-link-low-saturation: var(--fl-cyan-dim);
+  --text-positive:         var(--fl-green);
+  --text-warning:          var(--fl-yellow);
+  --text-danger:           var(--fl-red);
+  --text-brand:            var(--fl-cyan);
+
+  --header-primary:        var(--fl-150); /* channel names, headings */
+  --header-secondary:      var(--fl-500); /* subheadings, descriptions */
+
+
+  /* ============================================================
+     4. INTERACTIVE ELEMENTS (channels, buttons, icons)
+     ============================================================ */
+  --interactive-normal:    var(--fl-500);  /* default state */
+  --interactive-hover:     var(--fl-300);  /* mouse over */
+  --interactive-active:    var(--fl-200);  /* clicked / selected */
+  --interactive-muted:     var(--fl-700);  /* disabled / placeholder */
+
+  --channels-default:      var(--fl-500);  /* channel list text */
+
+
+  /* ============================================================
+     5. BRAND / ACCENT — Flexoki Cyan replaces Blurple
+     ============================================================ */
+  --brand-100: #DDF1E4;
+  --brand-130: #BFE8D9;
+  --brand-160: #A2DECE;
+  --brand-200: #87D3C3;
+  --brand-230: #5ABDAC;
+  --brand-260: var(--fl-cyan);
+  --brand-300: var(--fl-cyan);
+  --brand-330: var(--fl-cyan);
+  --brand-360: var(--fl-cyan);
+  --brand-400: var(--fl-cyan);
+  --brand-430: var(--fl-cyan);
+  --brand-460: var(--fl-cyan);
+  --brand-500: var(--fl-cyan);        /* THE main brand color */
+  --brand-530: var(--fl-cyan-dim);
+  --brand-560: var(--fl-cyan-dim);
+  --brand-600: var(--fl-cyan-dim);
+  --brand-630: #1C6C66;
+  --brand-660: #164F4A;
+  --brand-700: #143F3C;
+  --brand-730: #122F2C;
+  --brand-760: #101F1D;
+  --brand-800: #101F1D;
+  --brand-830: #101F1D;
+  --brand-860: #101F1D;
+  --brand-900: #101F1D;
+
+  --brand-experiment-100: var(--fl-cyan);
+  --brand-experiment-130: var(--fl-cyan);
+  --brand-experiment-160: var(--fl-cyan);
+  --brand-experiment-200: var(--fl-cyan);
+  --brand-experiment-230: var(--fl-cyan);
+  --brand-experiment-260: var(--fl-cyan);
+  --brand-experiment-300: var(--fl-cyan);
+  --brand-experiment-330: var(--fl-cyan);
+  --brand-experiment-360: var(--fl-cyan);
+  --brand-experiment-400: var(--fl-cyan);
+  --brand-experiment-430: var(--fl-cyan);
+  --brand-experiment-460: var(--fl-cyan);
+  --brand-experiment-500: var(--fl-cyan);
+  --brand-experiment-530: var(--fl-cyan-dim);
+  --brand-experiment-560: var(--fl-cyan-dim);
+  --brand-experiment-600: var(--fl-cyan-dim);
+  --brand-experiment-630: #1C6C66;
+  --brand-experiment-660: #164F4A;
+  --brand-experiment-700: #143F3C;
+  --brand-experiment-730: #122F2C;
+  --brand-experiment-760: #101F1D;
+  --brand-experiment-800: #101F1D;
+  --brand-experiment-830: #101F1D;
+  --brand-experiment-860: #101F1D;
+  --brand-experiment-900: #101F1D;
+
+
+  /* ============================================================
+     6. STATUS COLORS
+     ============================================================ */
+  --green-300: var(--fl-green);
+  --green-330: var(--fl-green);
+  --green-340: var(--fl-green);
+  --green-360: var(--fl-green);
+  --green-400: var(--fl-green-dim);
+  --green-430: var(--fl-green-dim);
+
+  --yellow-300: var(--fl-yellow);
+  --yellow-330: var(--fl-yellow);
+  --yellow-360: var(--fl-yellow);
+  --yellow-400: var(--fl-yellow-dim);
+
+  --red-300: var(--fl-red);
+  --red-330: var(--fl-red);
+  --red-345: var(--fl-red);
+  --red-360: var(--fl-red);
+  --red-400: var(--fl-red);
+  --red-430: var(--fl-red-dim);
+  --red-460: var(--fl-red-dim);
+  --red-500: var(--fl-red-dim);
+
+  --white-500: var(--fl-200);
+
+  --status-positive-background: var(--fl-green);
+  --status-positive-text:       var(--fl-green);
+  --status-warning-background:  var(--fl-yellow);
+  --status-warning-text:        var(--fl-yellow);
+  --status-danger-background:   var(--fl-red);
+  --status-danger-text:         var(--fl-red);
+  --status-danger:              var(--fl-red);
+  --status-positive:            var(--fl-green);
+  --status-warning:             var(--fl-yellow);
+
+
+  /* ============================================================
+     7. MISC DISCORD INTERNALS
+     ============================================================ */
+  --focus-primary:             var(--fl-cyan);
+  --control-brand-foreground:  var(--fl-cyan);
+  --control-brand-foreground-new: var(--fl-cyan);
+  --mention-foreground:        var(--fl-yellow);
+  --mention-background:        rgba(208, 162, 21, 0.15);
+  --info-positive-foreground:  var(--fl-green);
+  --info-positive-background:  rgba(135, 154, 57, 0.10);
+  --info-warning-foreground:   var(--fl-yellow);
+  --info-warning-background:   rgba(208, 162, 21, 0.10);
+  --info-danger-foreground:    var(--fl-red);
+  --info-danger-background:    rgba(209, 77, 65, 0.10);
+  --info-help-foreground:      var(--fl-blue);
+  --info-help-background:      rgba(67, 133, 190, 0.10);
+  --button-positive-background:var(--fl-green);
+  --button-danger-background:  var(--fl-red);
+  --button-outline-brand-text: var(--fl-cyan);
+  --button-outline-brand-border: var(--fl-cyan);
+  --button-outline-brand-text-active: var(--fl-150);
+  --button-outline-brand-background-active: var(--fl-cyan-dim);
+  --button-outline-danger-text: var(--fl-red);
+  --button-outline-danger-border: var(--fl-red);
+  --redesign-button-primary-background: var(--fl-cyan-dim);
+  --redesign-button-primary-pressed-background: #1C6C66;
+  --channel-icon:              var(--fl-500);
+  --activity-card-background:  var(--fl-950);
+
+  /* Elevation / shadow */
+  --elevation-stroke:          rgba(16, 15, 15, 0.6);
+  --elevation-low:             0 1px 0 rgba(16, 15, 15, 0.3), 0 1.5px 0 rgba(16, 15, 15, 0.15);
+  --elevation-medium:          0 4px 4px rgba(16, 15, 15, 0.16);
+  --elevation-high:            0 8px 16px rgba(16, 15, 15, 0.24);
+
+  /* Deprecated but still referenced */
+  --deprecated-card-bg:        var(--fl-950);
+  --deprecated-card-editable-bg: var(--fl-900);
+  --deprecated-store-bg:       var(--fl-black);
+  --deprecated-quickswitcher-input-background: var(--fl-850);
+  --deprecated-quickswitcher-input-placeholder: var(--fl-600);
+  --deprecated-text-input-bg:  var(--fl-950);
+  --deprecated-text-input-border: var(--fl-800);
+  --deprecated-text-input-border-hover: var(--fl-700);
+  --deprecated-text-input-border-disabled: var(--fl-850);
+  --deprecated-text-input-prefix: var(--fl-500);
+}
+
+
+/* ============================================================
+   8. SERVER / GUILD LIST (far-left column)
+   ============================================================ */
+
+/* Server list background */
+nav[aria-label="Servers sidebar"] {
+  background-color: var(--fl-black) !important;
+}
+
+/* Server icon pill (unread / selected indicator) */
+[class*="pill"] span {
+  background-color: var(--fl-200) !important;
+}
+
+/* Home button and folder backgrounds */
+[class*="wrapper"][class*="guilds"] [class*="folder"][class*="expanded"] {
+  background-color: var(--fl-900) !important;
+}
+
+/* Unread badge on server icons */
+[class*="lowerBadge"] [class*="numberBadge"],
+[class*="upperBadge"] [class*="numberBadge"] {
+  background-color: var(--fl-red) !important;
+  color: var(--fl-150) !important;
+}
+
+
+/* ============================================================
+   9. CHANNEL SIDEBAR
+   ============================================================ */
+
+/* Sidebar background */
+[class*="sidebar_"] {
+  background-color: var(--fl-950) !important;
+}
+
+/* Server name / header bar at top of sidebar */
+[class*="header"][class*="container"] {
+  background-color: var(--fl-950) !important;
+  color: var(--fl-150) !important;
+  box-shadow: 0 1px 0 var(--fl-900) !important;
+}
+
+/* Channel categories / group headers */
+[class*="containerDefault"] [class*="name"],
+[class*="categoryName"] {
+  color: var(--fl-600) !important;
+  text-transform: uppercase;
+}
+
+[class*="containerDefault"]:hover [class*="name"] {
+  color: var(--fl-500) !important;
+}
+
+/* Default channel names */
+[class*="modeMuted"] [class*="name"],
+[class*="modeMuted"] [class*="icon"] {
+  color: var(--fl-700) !important;
+}
+
+/* Unread channel names */
+[class*="modeUnread"] [class*="name"],
+[class*="modeUnread"] [class*="icon"] {
+  color: var(--fl-200) !important;
+  font-weight: 500 !important;
+}
+
+/* Selected/active channel */
+[class*="modeSelected"] [class*="name"],
+[class*="modeSelected"] [class*="icon"],
+[class*="modeSelected"] [class*="activityText"] {
+  color: var(--fl-150) !important;
+}
+
+[class*="modeSelected"] [class*="link"] {
+  background-color: var(--fl-800) !important;
+}
+
+/* Hovered channel */
+[class*="modeInteractable"]:hover [class*="link"],
+[class*="modeUnread"]:hover [class*="link"] {
+  background-color: rgba(64, 62, 60, 0.4) !important;
+}
+
+
+/* ============================================================
+   10. CHAT / MESSAGE AREA
+   ============================================================ */
+
+/* Chat background */
+[class*="chatContent"] {
+  background-color: var(--fl-black) !important;
+}
+
+/* Message text */
+[class*="messageContent"] {
+  color: var(--fl-200) !important;
+}
+
+/* Timestamps */
+[class*="timestamp"] {
+  color: var(--fl-600) !important;
+}
+
+/* Usernames in chat — keep role colors but ensure default is readable */
+[class*="username"][style*="color"] {
+  filter: saturate(0.85) brightness(1.1);
+}
+
+/* Reply / reference line */
+[class*="repliedMessage"] {
+  border-left-color: var(--fl-800) !important;
+}
+
+[class*="repliedMessage"] [class*="repliedTextContent"] {
+  color: var(--fl-500) !important;
+}
+
+/* Dividers (date separators) */
+[class*="divider"] [class*="content"] {
+  color: var(--fl-600) !important;
+}
+
+[class*="divider"][class*="hasContent"]::before,
+[class*="divider"][class*="hasContent"]::after {
+  border-color: var(--fl-850) !important;
+}
+
+/* New messages divider */
+[class*="divider"][class*="isUnread"] [class*="content"],
+[class*="divider"][class*="isUnread"] [class*="unreadPill"] {
+  color: var(--fl-red) !important;
+}
+
+[class*="divider"][class*="isUnread"]::before,
+[class*="divider"][class*="isUnread"]::after {
+  border-color: var(--fl-red) !important;
+}
+
+/* System messages (join, boost, pin) */
+[class*="systemMessage"] [class*="content"] {
+  color: var(--fl-500) !important;
+}
+
+
+/* ============================================================
+   11. MENTIONS & HIGHLIGHTS
+   ============================================================ */
+
+/* @mention tags */
+[class*="mention"] {
+  color: var(--fl-yellow) !important;
+  background-color: rgba(208, 162, 21, 0.15) !important;
+}
+
+[class*="mention"]:hover {
+  color: var(--fl-150) !important;
+  background-color: rgba(208, 162, 21, 0.35) !important;
+}
+
+/* Message that mentions you — left stripe */
+[class*="mentioned"]::before {
+  background-color: var(--fl-yellow) !important;
+}
+
+[class*="mentioned"] {
+  background-color: rgba(208, 162, 21, 0.08) !important;
+}
+
+[class*="mentioned"]:hover {
+  background-color: rgba(208, 162, 21, 0.12) !important;
+}
+
+
+/* ============================================================
+   12. EMBEDS, CODE BLOCKS, ATTACHMENTS
+   ============================================================ */
+
+/* Embeds */
+[class*="embedWrap"],
+[class*="embed"][class*="markup"] {
+  background-color: var(--fl-950) !important;
+  border-color: var(--fl-850) !important;
+}
+
+/* Inline code */
+code.inline {
+  background-color: var(--fl-900) !important;
+  border: 1px solid var(--fl-850) !important;
+  color: var(--fl-300) !important;
+}
+
+/* Code blocks */
+[class*="codeContainer"],
+[class*="markup"] pre,
+[class*="markup"] pre code {
+  background-color: var(--fl-950) !important;
+  border-color: var(--fl-850) !important;
+  border-radius: 4px !important;
+}
+
+/* Syntax highlighting in code blocks — Flexoki-tinted */
+[class*="hljs-keyword"]  { color: var(--fl-green)   !important; }
+[class*="hljs-string"]   { color: var(--fl-cyan)    !important; }
+[class*="hljs-number"]   { color: var(--fl-purple)  !important; }
+[class*="hljs-function"] { color: var(--fl-orange)  !important; }
+[class*="hljs-title"]    { color: var(--fl-orange)  !important; }
+[class*="hljs-comment"]  { color: var(--fl-600)     !important; }
+[class*="hljs-built_in"] { color: var(--fl-blue)    !important; }
+[class*="hljs-type"]     { color: var(--fl-yellow)  !important; }
+[class*="hljs-attr"]     { color: var(--fl-blue)    !important; }
+[class*="hljs-literal"]  { color: var(--fl-purple)  !important; }
+[class*="hljs-selector"] { color: var(--fl-green)   !important; }
+[class*="hljs-params"]   { color: var(--fl-200)     !important; }
+[class*="hljs-meta"]     { color: var(--fl-magenta) !important; }
+[class*="hljs-regexp"]   { color: var(--fl-cyan)    !important; }
+[class*="hljs-variable"]  { color: var(--fl-blue)   !important; }
+[class*="hljs-addition"]  { color: var(--fl-green)  !important; }
+[class*="hljs-deletion"]  { color: var(--fl-red)    !important; }
+
+/* Spoiler tags */
+[class*="spoilerContent"][class*="hidden"] {
+  background-color: var(--fl-800) !important;
+}
+
+/* Attachment file boxes */
+[class*="attachment"] [class*="attachmentInner"] {
+  background-color: var(--fl-950) !important;
+  border-color: var(--fl-850) !important;
+}
+
+
+/* ============================================================
+   13. MEMBER LIST (right sidebar)
+   ============================================================ */
+
+/* Member list background */
+[class*="membersWrap"] {
+  background-color: var(--fl-950) !important;
+}
+
+[class*="members"] > [class*="content"] {
+  background-color: var(--fl-950) !important;
+}
+
+/* Role/group headers in member list */
+[class*="membersGroup"] {
+  color: var(--fl-600) !important;
+}
+
+/* Member names — fallback for those without role color */
+[class*="member"] [class*="username"]:not([style*="color"]) {
+  color: var(--fl-300) !important;
+}
+
+/* Offline members */
+[class*="offline"] {
+  opacity: 0.4;
+}
+
+/* Member hover state */
+[class*="member"]:hover,
+[class*="member"][class*="selected"] {
+  background-color: rgba(64, 62, 60, 0.3) !important;
+}
+
+
+/* ============================================================
+   14. USER PANEL (bottom-left)
+   ============================================================ */
+
+[class*="panels"] {
+  background-color: var(--fl-950) !important;
+}
+
+[class*="panels"] [class*="username"] {
+  color: var(--fl-200) !important;
+}
+
+[class*="panels"] [class*="subText"] {
+  color: var(--fl-600) !important;
+}
+
+/* Voice connection panel */
+[class*="actionButtons"] [class*="button"] {
+  color: var(--fl-400) !important;
+}
+
+[class*="actionButtons"] [class*="button"]:hover {
+  color: var(--fl-200) !important;
+  background-color: var(--fl-800) !important;
+}
+
+
+/* ============================================================
+   15. TITLE BAR & TOOLBAR (top bar)
+   ============================================================ */
+
+[class*="titleBar"],
+[class*="title"][class*="themed"] {
+  background-color: var(--fl-950) !important;
+}
+
+/* Channel name in title */
+[class*="title"][class*="base"] {
+  color: var(--fl-150) !important;
+}
+
+/* Topic / description text */
+[class*="topic"] {
+  color: var(--fl-500) !important;
+}
+
+/* Toolbar icons (search, pins, members, etc.) */
+[class*="toolbar"] [class*="iconWrapper"] {
+  color: var(--fl-500) !important;
+}
+
+[class*="toolbar"] [class*="iconWrapper"]:hover {
+  color: var(--fl-200) !important;
+}
+
+[class*="toolbar"] [class*="iconWrapper"][class*="selected"] {
+  color: var(--fl-cyan) !important;
+}
+
+
+/* ============================================================
+   16. MESSAGE INPUT / TEXT AREA
+   ============================================================ */
+
+[class*="channelTextArea"] [class*="scrollableContainer"] {
+  background-color: var(--fl-900) !important;
+  border-radius: 8px !important;
+}
+
+[class*="channelTextArea"] [class*="placeholder"] {
+  color: var(--fl-600) !important;
+}
+
+/* Upload/attachment bar */
+[class*="attachWrapper"] {
+  background-color: var(--fl-900) !important;
+}
+
+/* Typing indicator */
+[class*="typing"] {
+  background-color: var(--fl-black) !important;
+  color: var(--fl-500) !important;
+}
+
+
+/* ============================================================
+   17. SEARCH & QUICK SWITCHER
+   ============================================================ */
+
+/* Search bar */
+[class*="search"] [class*="searchBar"] {
+  background-color: var(--fl-850) !important;
+}
+
+/* Quick Switcher */
+[class*="quickswitcher"] {
+  background-color: var(--fl-900) !important;
+}
+
+[class*="quickswitcher"] input {
+  background-color: var(--fl-850) !important;
+  color: var(--fl-200) !important;
+}
+
+[class*="quickswitcher"] [class*="result"][class*="focused"] {
+  background-color: var(--fl-800) !important;
+}
+
+/* Search results popout */
+[class*="searchResultsWrap"] {
+  background-color: var(--fl-900) !important;
+}
+
+[class*="searchResult"][class*="focused"] {
+  background-color: var(--fl-850) !important;
+}
+
+[class*="searchAnswer"] {
+  background-color: rgba(58, 169, 159, 0.15) !important;
+  color: var(--fl-cyan) !important;
+}
+
+
+/* ============================================================
+   18. POPOUTS & MODALS (user popout, settings, etc.)
+   ============================================================ */
+
+/* User popout card */
+[class*="userPopoutOuter"],
+[class*="userPopoutInner"],
+[class*="userProfileOuter"],
+[class*="userProfileInner"] {
+  background-color: var(--fl-900) !important;
+}
+
+/* User profile modal */
+[class*="userProfileModal"],
+[class*="profilePanel"] {
+  background-color: var(--fl-900) !important;
+}
+
+/* Role pills in user popout */
+[class*="role"][class*="pill"],
+[class*="roleRemoveButton"] {
+  background-color: var(--fl-850) !important;
+  border-color: var(--fl-800) !important;
+}
+
+/* Settings pages */
+[class*="contentRegion"] {
+  background-color: var(--fl-black) !important;
+}
+
+[class*="sidebarRegion"] [class*="sidebar"] {
+  background-color: var(--fl-950) !important;
+}
+
+[class*="sidebarRegion"] [class*="item"][class*="selected"] {
+  background-color: var(--fl-800) !important;
+  color: var(--fl-150) !important;
+}
+
+/* Generic modal overlay */
+[class*="layerContainer"] [class*="backdrop"] {
+  background-color: rgba(16, 15, 15, 0.7) !important;
+}
+
+
+/* ============================================================
+   19. CONTEXT MENUS & TOOLTIPS
+   ============================================================ */
+
+[class*="menu"],
+[class*="contextMenu"] {
+  background-color: var(--fl-900) !important;
+  border: 1px solid var(--fl-850) !important;
+}
+
+[class*="menu"] [class*="item"]:hover,
+[class*="menu"] [class*="item"][class*="focused"] {
+  background-color: var(--fl-cyan-dim) !important;
+  color: var(--fl-150) !important;
+}
+
+[class*="menu"] [class*="separator"] {
+  border-color: var(--fl-850) !important;
+}
+
+[class*="menu"] [class*="colorDanger"]:hover {
+  background-color: var(--fl-red-dim) !important;
+  color: var(--fl-150) !important;
+}
+
+/* Tooltips */
+[class*="tooltip"] {
+  background-color: var(--fl-850) !important;
+  color: var(--fl-200) !important;
+}
+
+[class*="tooltipPointer"] {
+  border-top-color: var(--fl-850) !important;
+}
+
+
+/* ============================================================
+   20. REACTIONS & EMOJI
+   ============================================================ */
+
+[class*="reaction"] {
+  background-color: var(--fl-900) !important;
+  border-color: var(--fl-850) !important;
+}
+
+[class*="reaction"]:hover {
+  background-color: var(--fl-850) !important;
+  border-color: var(--fl-800) !important;
+}
+
+/* Reaction you've clicked */
+[class*="reaction"][class*="reactionMe"] {
+  background-color: rgba(58, 169, 159, 0.15) !important;
+  border-color: var(--fl-cyan) !important;
+}
+
+/* Reaction count */
+[class*="reactionCount"] {
+  color: var(--fl-400) !important;
+}
+
+/* Emoji picker */
+[class*="emojiPicker"] {
+  background-color: var(--fl-900) !important;
+}
+
+[class*="emojiPicker"] [class*="searchBar"] {
+  background-color: var(--fl-850) !important;
+}
+
+[class*="emojiPicker"] [class*="header"],
+[class*="emojiPicker"] [class*="categoryHeader"] {
+  background-color: var(--fl-900) !important;
+}
+
+
+/* ============================================================
+   21. VOICE / CALL UI
+   ============================================================ */
+
+[class*="callContainer"] {
+  background-color: var(--fl-black) !important;
+}
+
+[class*="voiceCallWrapper"] {
+  background-color: var(--fl-black) !important;
+}
+
+/* Voice connected bar */
+[class*="rtcConnectionStatus"][class*="connected"] {
+  color: var(--fl-green) !important;
+}
+
+/* Speaking indicator ring — keep Discord's green for clarity */
+
+
+/* ============================================================
+   22. AUTOCOMPLETE / SLASH COMMAND POPUP
+   ============================================================ */
+
+[class*="autocomplete"] {
+  background-color: var(--fl-900) !important;
+}
+
+[class*="autocomplete"] [class*="selectorSelected"],
+[class*="autocomplete"] [class*="selected"] {
+  background-color: var(--fl-800) !important;
+}
+
+[class*="autocomplete"] [class*="contentTitle"],
+[class*="autocomplete"] [class*="base"] {
+  color: var(--fl-cyan) !important;
+}
+
+
+/* ============================================================
+   23. DM LIST & FRIENDS PAGE
+   ============================================================ */
+
+[class*="privateChannels"] {
+  background-color: var(--fl-950) !important;
+}
+
+/* DM search at top */
+[class*="privateChannels"] [class*="searchBar"] {
+  background-color: var(--fl-850) !important;
+  color: var(--fl-500) !important;
+}
+
+/* Friend activity / "No one is around" placeholder */
+[class*="emptyCard"],
+[class*="noFriends"],
+[class*="empty"] {
+  background-color: var(--fl-950) !important;
+}
+
+/* Friends tab buttons (Online, All, Pending, etc.) */
+[class*="tabBar"] [class*="item"] {
+  color: var(--fl-500) !important;
+}
+
+[class*="tabBar"] [class*="item"][class*="selected"],
+[class*="tabBar"] [class*="item"]:hover {
+  color: var(--fl-200) !important;
+}
+
+
+/* ============================================================
+   24. NOTIFICATION BADGE & UNREAD INDICATORS
+   ============================================================ */
+
+/* Red notification badges */
+[class*="numberBadge"] {
+  background-color: var(--fl-red) !important;
+  color: var(--fl-150) !important;
+}
+
+/* Unread pill on channels */
+[class*="unread"][class*="bar"] {
+  background-color: var(--fl-200) !important;
+}
+
+
+/* ============================================================
+   25. LOADING / SKELETON STATES
+   ============================================================ */
+
+[class*="skeleton"] {
+  background-color: var(--fl-900) !important;
+}
+
+[class*="pulsing"] {
+  animation: flexoki-pulse 1.5s ease-in-out infinite alternate;
+}
+
+@keyframes flexoki-pulse {
+  from { opacity: 0.6; }
+  to   { opacity: 1.0; }
+}
+
+
+/* ============================================================
+   26. THREAD PANEL
+   ============================================================ */
+
+[class*="chatLayerWrapper"],
+[class*="container"][class*="thread"] {
+  background-color: var(--fl-950) !important;
+}
+
+
+/* ============================================================
+   27. FORUM / STAGE / EVENTS
+   ============================================================ */
+
+[class*="card"][class*="interactive"] {
+  background-color: var(--fl-950) !important;
+  border-color: var(--fl-850) !important;
+}
+
+[class*="card"][class*="interactive"]:hover {
+  background-color: var(--fl-900) !important;
+}
+
+
+/* ============================================================
+   28. ROLE COLORS — soften Discord's saturated defaults
+   ============================================================ */
+
+/* Slightly desaturate role colors so they sit well on Flexoki bg */
+[class*="roleColor"],
+[class*="username"][style*="color:"],
+[class*="name"][style*="color:"] {
+  filter: saturate(0.8) brightness(1.05);
+}
+
+
+/* ============================================================
+   29. SELECTION & FOCUS RINGS
+   ============================================================ */
+
+::selection {
+  background-color: rgba(58, 169, 159, 0.3) !important;
+  color: var(--fl-150) !important;
+}
+
+*:focus-visible {
+  outline-color: var(--fl-cyan) !important;
+}
+
+
+/* ============================================================
+   30. NITRO / BOOST / BADGE ACCENTS
+   ============================================================ */
+
+/* Boost progress bar */
+[class*="progressBar"] [class*="barInner"] {
+  background: linear-gradient(90deg, var(--fl-cyan-dim), var(--fl-cyan)) !important;
+}
+
+/* Nitro badge and similar glows — reduce intensity */
+[class*="premiumBadge"] {
+  filter: saturate(0.7) brightness(0.9);
+}
