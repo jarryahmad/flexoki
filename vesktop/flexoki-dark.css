@@ -299,10 +299,12 @@ nav[aria-label="Servers sidebar"] {
   box-shadow: 0 1px 0 var(--fl-900) !important;
 }
 
-/* Channel categories / group headers */
+/* Channel categories / group headers — Discord uppercases these by default */
 [class*="containerDefault"] [class*="name"],
-[class*="categoryName"] {
+[class*="categoryName"],
+h2[class*="container"] [class*="name"] {
   color: var(--fl-600) !important;
+  text-transform: none !important;
 }
 
 [class*="containerDefault"]:hover [class*="name"] {
@@ -322,21 +324,22 @@ nav[aria-label="Servers sidebar"] {
   font-weight: 500 !important;
 }
 
-/* Selected/active channel */
+/* Selected/active channel — subtle highlight only */
 [class*="modeSelected"] [class*="name"],
 [class*="modeSelected"] [class*="icon"],
 [class*="modeSelected"] [class*="activityText"] {
-  color: var(--fl-150) !important;
+  color: var(--fl-200) !important;
 }
 
-[class*="modeSelected"] [class*="link"] {
-  background-color: rgba(64, 62, 60, 0.35) !important;
+[class*="modeSelected"] [class*="link"],
+[class*="modeSelected"][class*="wrapper"] {
+  background-color: rgba(64, 62, 60, 0.25) !important;
 }
 
 /* Hovered channel */
 [class*="modeInteractable"]:hover [class*="link"],
 [class*="modeUnread"]:hover [class*="link"] {
-  background-color: rgba(64, 62, 60, 0.4) !important;
+  background-color: rgba(64, 62, 60, 0.2) !important;
 }
 
 
