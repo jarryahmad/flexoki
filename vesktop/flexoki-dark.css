@@ -303,7 +303,6 @@ nav[aria-label="Servers sidebar"] {
 [class*="containerDefault"] [class*="name"],
 [class*="categoryName"] {
   color: var(--fl-600) !important;
-  text-transform: uppercase;
 }
 
 [class*="containerDefault"]:hover [class*="name"] {
@@ -331,7 +330,7 @@ nav[aria-label="Servers sidebar"] {
 }
 
 [class*="modeSelected"] [class*="link"] {
-  background-color: var(--fl-800) !important;
+  background-color: rgba(64, 62, 60, 0.35) !important;
 }
 
 /* Hovered channel */
